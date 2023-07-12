@@ -16,4 +16,4 @@ for (let i = 0; i < numberOfPrizes; i++) {
     prizeSquares.push(new gridSquare(i+1,prizeLadder))
 }
 
-roundOne(gridSquares,prizeLadder);
+roundOne();

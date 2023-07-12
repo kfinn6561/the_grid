@@ -1,13 +1,13 @@
-function roundOne(gridSquares, prizeLadder){
+function roundOne(){
     prizeLadder.style.display="none";
-    setupRoundOne(gridSquares);
+    setupRoundOne();
 }
 
 function formatCurrency(amount){
     return "\u00A3" + amount.toLocaleString();
 }
 
-function setupRoundOne(gridSquares){
+function setupRoundOne(){
     for (let i=0; i<9; i++){
         gridSquares[i].setText(formatCurrency(topRowPrizes[i]))
         gridSquares[i].setColour("#3293a8")
