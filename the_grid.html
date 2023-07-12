@@ -1,82 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
-}
-.answer {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
-</style>
+<link rel="stylesheet" href="src/the_grid.css"
 </head>
 
 <body>
+  <h1>The Grid</h1>
 
-<h1 id="question">Eliminate!</h1>
+  <div class="grid-container" id="the-grid"></div>
 
+<br>
+<br>
+  <div class="grid-container" id="prize-ladder"></div>
 
-<div class="grid-container" id="container"> 
-</div>
-<input type="file" onchange="loadAnswers()" id="file-input"><br>
-
-<script>
-const yellowTime = 2;
-
-function loadAnswers() {
-  const [file] = document.getElementById("file-input").files;
-  file.text().then(
-    (result) => {
-      processText(result);
-  }
-  )
-    
-}
-
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
-
-function processText(allText) {
-  var allTextLines = allText.split(/\r\n|\n/);
-  document.getElementById("question").innerHTML=allTextLines[0].trim().trim(',')
-  allTextLines.splice(0,1)
-  document.getElementById('container').innerHTML=''
-    while(allTextLines.length){
-      i=Math.floor(Math.random()*allTextLines.length)
-        var data = allTextLines[i].split(',');
-        if (data.length >= 2) {
-          var answer=data[0].trim()
-          var correct=data[1].trim()
-          if (correct.toLowerCase() == 'red'){
-            bg='#eb0000'
-          } else {
-            bg='#00eb4e'
-          }
-          elem=document.createElement('div')
-          elem.classList.add('answer')
-          node = document.createTextNode(answer);
-          elem.appendChild(node)
-          elem.clickedBGColour=bg
-          elem.onclick = function(){
-            this.style.backgroundColor='#ebcb1a'
-            sleep(yellowTime*1000).then(() => {
-              this.style.backgroundColor=this.clickedBGColour
-            })
-          }
-          document.getElementById("container").appendChild(elem)
-        }
-      allTextLines.splice(i,1)
-    }
-}
-</script>
-
+<script src="src/the_grid.js"></script>
+<script src="src/main.js"></script>
 </body>
 </html>
