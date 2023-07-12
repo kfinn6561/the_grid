@@ -12,4 +12,12 @@ class gridSquare {
         this.parent.appendChild(this.element);
     }
 
+    setText(text){
+        this.element.innerHTML=text;
+    }
+
+    setColour(colour){
+        this.element.style.backgroundColor=colour;
+    }
+
 }
