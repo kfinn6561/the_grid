@@ -4,7 +4,13 @@ function roundOne(){
     columnsToChoose = [...Array(numberOfColumns).keys()]
     
     for (let i=0; i<numberOfColumns; i++){
-
+        columnsToChoose.forEach( j =>{
+            for (let k=0; k<3; k++){
+                gridSquares[j+k*numberOfColumns].addClickEvent(()=>{
+                    roundOneChoose(j)
+                })
+            }
+        })
     }
 
 }
@@ -25,5 +31,11 @@ function setupRoundOne(){
 
         gridSquares[i+2*numberOfColumns].setText(formatCurrency(bottomRowPrizes[i]))
         gridSquares[i+2*numberOfColumns].setColour("#edca2f")
+    }
+}
+
+function roundOneChoose(i){
+    for (let k=0; k<3; k++){
+        gridSquares[i+k*numberOfColumns].setColour("green");
     }
 }

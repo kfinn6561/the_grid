@@ -20,4 +20,8 @@ class gridSquare {
         this.element.style.backgroundColor=colour;
     }
 
+    addClickEvent(myFunction){
+        this.element.addEventListener("click", myFunction)
+    }
+
 }
