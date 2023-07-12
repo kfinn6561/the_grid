@@ -1,6 +1,8 @@
 
-const numberOfSquares=27;
-const numberOfPrizes=9;
+const numberOfColumns = 9;
+
+const numberOfSquares=3 * numberOfColumns;
+const numberOfPrizes=numberOfColumns;
 
 var gridSquares=[]
 var prizeSquares=[]
