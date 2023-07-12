@@ -1,6 +1,7 @@
 function roundOne(){
-    prizeLadder.style.display="none";
     setupRoundOne();
+
+
 }
 
 function formatCurrency(amount){
@@ -8,6 +9,8 @@ function formatCurrency(amount){
 }
 
 function setupRoundOne(){
+    prizeLadder.style.display="none";
+    
     for (let i=0; i<9; i++){
         gridSquares[i].setText(formatCurrency(topRowPrizes[i]))
         gridSquares[i].setColour("#3293a8")
